@@ -1,0 +1,7 @@
+{
+    "routes":
+        [ {"fromPin": {"instanceName": "foo", "pinName": "LED1"},
+           "toPin":   {"instanceName": "bar", "pinName": "LED2"},
+           "path": [{"instance": "my-matrix", "fromPin": "COL7", "toPin": "ROW9"}]}
+        ]
+}

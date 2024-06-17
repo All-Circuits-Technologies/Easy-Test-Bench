@@ -1,0 +1,55 @@
+[
+    {
+        "uniqueName": "nodesSequenceName",
+        "type": "NodesSequence",
+        "parentInstanceName": "",
+        "inputs": [],
+        "outputs": []
+    },
+    {
+        "uniqueName": "constantNode",
+        "type": "ConstantNode",
+        "typeManaged": "number",
+        "unit": "W",
+        "unitPowerOf10": "3",
+        "parentInstanceName": "nodesSequenceName",
+        "value": "5,25"
+    },
+    {
+        "uniqueName": "constantNode2",
+        "type": "ConstantNode",
+        "typeManaged": "string",
+        "parentInstanceName": "nodesSequenceName",
+        "value": "constantValue"
+    },
+    {
+        "uniqueName": "constantNode3",
+        "type": "ConstantNode",
+        "typeManaged": "bool",
+        "parentInstanceName": "nodesSequenceName",
+        "value": true
+    },
+    {
+        "uniqueName": "constantNode4",
+        "type": "ConstantNode",
+        "typeManaged": "list<number>",
+        "unit": "lm",
+        "unitPowerOf10": "3",
+        "parentInstanceName": "nodesSequenceName",
+        "values": [ "3", "52,36", "85" ]
+    },
+    {
+        "uniqueName": "constantNode5",
+        "type": "ConstantNode",
+        "typeManaged": "list<string>",
+        "parentInstanceName": "nodesSequenceName",
+        "values": [ "value1", "valueJoker" ]
+    },
+    {
+        "uniqueName": "constantNode6",
+        "type": "ConstantNode",
+        "typeManaged": "list<bool>",
+        "parentInstanceName": "nodesSequenceName",
+        "values": [ true, false, true ]
+    }
+]

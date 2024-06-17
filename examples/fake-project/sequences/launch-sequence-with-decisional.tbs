@@ -1,0 +1,185 @@
+[
+    {
+        "uniqueName": "nodesSequenceName",
+        "type": "NodesSequence",
+        "description": "node sequence description",
+        "parentInstanceName": "",
+        "inputs": [],
+        "outputs": []
+    },
+    {
+        "uniqueName": "variableNode1",
+        "type": "VariableNode",
+        "typeManaged": "number",
+        "parentInstanceName": "nodesSequenceName"
+    },
+    {
+        "uniqueName": "variableNode2",
+        "type": "VariableNode",
+        "typeManaged": "number",
+        "parentInstanceName": "nodesSequenceName"
+    },
+    {
+        "uniqueName": "initialNodeName",
+        "type": "InitialNode",
+        "description": "initialNodeDescription",
+        "parentInstanceName": "nodesSequenceName",
+        "toNode": "sequenceModuleNode1" 
+    },
+    {
+        "uniqueName": "sequenceModuleNode1",
+        "type": "SequenceModuleNode",
+        "description": "sequenceModuleNodeDescription",
+        "bankName": "variable-operations-plugin",
+        "moduleName": "valuenumberassignmentoperator",
+        "moduleParameters": [
+            {
+                "name": "assignementModifier",
+                "value": "0"
+            }
+        ],
+        "inputs": [],
+        "outputs": [
+            {
+                "name": "outputPin",
+                "typeManaged": "number",
+                "referenceNodeName": "variableNode1"
+            }
+        ],
+        "parentInstanceName": "nodesSequenceName",
+        "disable": false,
+        "toNode": "sequenceModuleNode2"
+    },
+    {
+        "uniqueName": "sequenceModuleNode2",
+        "type": "SequenceModuleNode",
+        "description": "sequenceModuleNodeDescription",
+        "bankName": "variable-operations-plugin",
+        "moduleName": "valuenumberassignmentoperator",
+        "moduleParameters": [
+            {
+                "name": "assignementModifier",
+                "value": "0"
+            }
+        ],
+        "inputs": [],
+        "outputs": [
+            {
+                "name": "outputPin",
+                "typeManaged": "number",
+                "referenceNodeName": "variableNode2"
+            }
+        ],
+        "parentInstanceName": "nodesSequenceName",
+        "disable": false,
+        "toNode": "mergeNodeName"
+    },
+    {
+        "uniqueName": "mergeNodeName",
+        "type": "MergeNode",
+        "description": "mergeNodeDescription",
+        "parentInstanceName": "nodesSequenceName",
+        "toNode": "sequenceModuleNode3" 
+    },
+    {
+        "uniqueName": "sequenceModuleNode3",
+        "type": "SequenceModuleNode",
+        "description": "sequenceModuleNodeDescription",
+        "bankName": "variable-operations-plugin",
+        "moduleName": "fromrefnumberarithmeticoperator",
+        "moduleParameters": [
+            {
+                "name": "arithmeticValue",
+                "value": "1"
+            },
+            {
+                "name": "arithmeticOperator",
+                "value": "+"
+            }
+        ],
+        "inputs": [
+            {
+                "name": "inputNumberPin",
+                "typeManaged": "number",
+                "referenceNodeName": "variableNode1"
+            }
+        ],
+        "outputs": [
+            {
+                "name": "outputNumberPin",
+                "typeManaged": "number",
+                "referenceNodeName": "variableNode1"
+            }
+        ],
+        "parentInstanceName": "nodesSequenceName",
+        "disable": false,
+        "toNode": "decisionalNodeName"
+    },
+    {
+        "uniqueName": "decisionalNodeName",
+        "type": "DecisionalNode",
+        "description": "decisional description",
+        "parentInstanceName": "nodesSequenceName",
+        "referenceNodeNameToTest": "variableNode1",
+        "defaultNodeName": "mergeNodeName2",
+        "toNodes": [
+            {
+                "toNode": "mergeNodeName",
+                "operator": "<",
+                "value": "10"
+            },
+            {
+                "toNode": "sequenceModuleNode4",
+                "operator": "==",
+                "value": "10"
+            }
+        ]
+    },
+    {
+        "uniqueName": "sequenceModuleNode4",
+        "type": "SequenceModuleNode",
+        "description": "sequenceModuleNodeDescription",
+        "bankName": "variable-operations-plugin",
+        "moduleName": "fromrefnumberarithmeticoperator",
+        "moduleParameters": [
+            {
+                "name": "arithmeticValue",
+                "value": "1"
+            },
+            {
+                "name": "arithmeticOperator",
+                "value": "+"
+            }
+        ],
+        "inputs": [
+            {
+                "name": "inputNumberPin",
+                "typeManaged": "number",
+                "referenceNodeName": "variableNode2"
+            }
+        ],
+        "outputs": [
+            {
+                "name": "outputNumberPin",
+                "typeManaged": "number",
+                "referenceNodeName": "variableNode2"
+            }
+        ],
+        "parentInstanceName": "nodesSequenceName",
+        "disable": false,
+        "toNode": "mergeNodeName"
+    },
+    {
+        "uniqueName": "mergeNodeName2",
+        "type": "MergeNode",
+        "description": "mergeNodeDescription",
+        "parentInstanceName": "nodesSequenceName",
+        "toNode": "finalNodeName" 
+    },
+    {
+        "uniqueName": "finalNodeName",
+        "type": "FinalNode",
+        "description": "finalNodeDescription",
+        "parentInstanceName": "nodesSequenceName"
+    }
+]

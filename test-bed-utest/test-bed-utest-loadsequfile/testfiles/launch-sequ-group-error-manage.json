@@ -1,0 +1,178 @@
+[
+    {
+        "uniqueName": "nodesSequenceName",
+        "type": "NodesSequence",
+        "description": "node sequence description",
+        "parentInstanceName": "",
+        "inputs": [],
+        "outputs": []
+    },
+    {
+        "uniqueName": "variableNode1",
+        "type": "VariableNode",
+        "typeManaged": "number",
+        "parentInstanceName": "nodesSequenceName"
+    },
+    {
+        "uniqueName": "variableNode2",
+        "type": "VariableNode",
+        "typeManaged": "boolean",
+        "parentInstanceName": "nodesSequenceName"
+    },
+    {
+        "uniqueName": "constantNode3",
+        "type": "ConstantNode",
+        "typeManaged": "bool",
+        "parentInstanceName": "nodesSequenceName",
+        "value": false
+    },
+    {
+        "uniqueName": "initialNodeName",
+        "type": "InitialNode",
+        "description": "initialNodeDescription",
+        "parentInstanceName": "nodesSequenceName",
+        "toNode": "sequenceModuleNode1"
+    },
+    {
+        "uniqueName": "sequenceModuleNode1",
+        "type": "SequenceModuleNode",
+        "description": "sequenceModuleNodeDescription",
+        "bankName": "variable-operations-plugin",
+        "moduleName": "valuenumberassignmentoperator",
+        "moduleParameters": [
+            {
+                "name": "assignmentModifier",
+                "value": "0"
+            }
+        ],
+        "inputs": [],
+        "outputs": [
+            {
+                "name": "outputPin",
+                "typeManaged": "number",
+                "variableNodeName": "variableNode1"
+            }
+        ],
+        "parentInstanceName": "nodesSequenceName",
+        "disable": false,
+        "toNode": "groupNodeName"
+    },
+    {
+        "uniqueName": "groupNodeName",
+        "type": "GroupNode",
+        "description": "group node description",
+        "parentInstanceName": "nodesSequenceName",
+        "emitErrorIfSequenceFailed": false,
+        "inputs": [
+            {
+                "name": "in1",
+                "typeManaged": "number",
+                "referenceNodeName": "variableNode1",
+                "internalBindingRefNodeName": "groupVariableNode1"
+            }
+        ],
+        "outputs": [
+            {
+                "name": "sequenceSuccess",
+                "typeManaged": "boolean",
+                "variableNodeName": "variableNode2"
+            }
+        ],
+        "toNode": "sequenceModuleNode2"
+    },
+    {
+        "uniqueName": "groupVariableNode1",
+        "type": "VariableNode",
+        "typeManaged": "number",
+        "parentInstanceName": "groupNodeName"
+    },
+    {
+        "uniqueName": "groupInitialNodeName",
+        "type": "InitialNode",
+        "description": "initialNodeDescription",
+        "parentInstanceName": "groupNodeName",
+        "toNode": "groupSequenceModuleNode1"
+    },
+    {
+        "uniqueName": "groupSequenceModuleNode1",
+        "type": "SequenceModuleNode",
+        "description": "sequenceModuleNodeDescription",
+        "bankName": "variable-compare-test-plugin",
+        "moduleName": "tworefsnumbercomparator",
+        "moduleParameters": [
+            {
+                "name": "comparisonOperator",
+                "values": [
+                    "notEqualKey"
+                ]
+            },
+            {
+                "name": "exitIfFail",
+                "value": true
+            }
+        ],
+        "inputs": [
+            {
+                "name": "inputPin",
+                "typeManaged": "number",
+                "referenceNodeName": "groupVariableNode1"
+            },
+            {
+                "name": "inputSecPin",
+                "typeManaged": "number",
+                "referenceNodeName": "groupVariableNode1"
+            }
+        ],
+        "outputs": [],
+        "parentInstanceName": "groupNodeName",
+        "disable": false,
+        "toNode": "groupFinalNodeName"
+    },
+    {
+        "uniqueName": "groupFinalNodeName",
+        "type": "FinalNode",
+        "description": "finalNodeDescription",
+        "parentInstanceName": "groupNodeName"
+    },
+    {
+        "uniqueName": "sequenceModuleNode2",
+        "type": "SequenceModuleNode",
+        "description": "sequenceModuleNodeDescription",
+        "bankName": "variable-compare-test-plugin",
+        "moduleName": "tworefsboolcomparator",
+        "moduleParameters": [
+            {
+                "name": "comparisonOperator",
+                "values": [
+                    "equalKey"
+                ]
+            },
+            {
+                "name": "exitIfFail",
+                "value": true
+            }
+        ],
+        "inputs": [
+            {
+                "name": "inputPin",
+                "typeManaged": "boolean",
+                "referenceNodeName": "variableNode2"
+            },
+            {
+                "name": "inputSecPin",
+                "typeManaged": "boolean",
+                "referenceNodeName": "constantNode3"
+            }
+        ],
+        "outputs": [],
+        "parentInstanceName": "nodesSequenceName",
+        "disable": false,
+        "toNode": "finalNodeName"
+    },
+    {
+        "uniqueName": "finalNodeName",
+        "type": "FinalNode",
+        "description": "finalNodeDescription",
+        "parentInstanceName": "nodesSequenceName"
+    }
+]

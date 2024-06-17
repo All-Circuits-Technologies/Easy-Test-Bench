@@ -1,0 +1,19 @@
+[
+    {
+        "uniqueName": "nodesSequenceName",
+        "type": "NodesSequence",
+        "parentInstanceName": "",
+        "inputs": [],
+        "outputs": []
+    },
+    {
+        "uniqueName": "inclusionNodeName",
+        "type": "InclusionNode",
+        "description": "inclusion node description",
+        "parentInstanceName": "nodesSequenceName",
+        "otherFileReferencePath": "",
+        "toNode": "",
+        "inputs": [],
+        "outputs": []
+    }
+]

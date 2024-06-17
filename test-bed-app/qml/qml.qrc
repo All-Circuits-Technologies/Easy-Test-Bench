@@ -1,0 +1,93 @@
+<RCC>
+    <qresource prefix="/">
+        <file alias="main.qml">main.qml</file>
+    </qresource>
+    <qresource prefix="/credits">
+        <file alias="CreditsPopUp.qml">credits/CreditsPopUp.qml</file>
+        <file alias="CreditsText.qml">credits/CreditsText.qml</file>
+    </qresource>
+    <qresource prefix="/fonts">
+        <file alias="Lato-Regular.ttf">fonts/Lato-Regular.ttf</file>
+        <file alias="Lato-SemiBold.ttf">fonts/Lato-SemiBold.ttf</file>
+    </qresource>
+    <qresource prefix="/file_selection">
+        <file alias="FileListView.qml">file_selection/FileListView.qml</file>
+        <file alias="FileListItem.qml">file_selection/FileListItem.qml</file>
+    </qresource>
+    <qresource prefix="/pages">
+        <file alias="ABasePage.qml">pages/ABasePage.qml</file>
+        <file alias="LoginPage.qml">pages/LoginPage.qml</file>
+        <file alias="SequenceRunPage.qml">pages/SequenceRunPage.qml</file>
+        <file alias="ProjectSelectionPage.qml">pages/ProjectSelectionPage.qml</file>
+        <file alias="AFileSelectionPage.qml">pages/AFileSelectionPage.qml</file>
+        <file alias="SequenceSelectionPage.qml">pages/SequenceSelectionPage.qml</file>
+    </qresource>
+    <qresource prefix="/top_bar">
+        <file alias="TopBar.qml">top_bar/TopBar.qml</file>
+    </qresource>
+    <qresource prefix="/basic_items">
+        <file alias="ButtonBackground.qml">basic_items/ButtonBackground.qml</file>
+        <file alias="ButtonColors.qml">basic_items/ButtonColors.qml</file>
+        <file alias="CircularButton.qml">basic_items/CircularButton.qml</file>
+        <file alias="ClickableItem.qml">basic_items/ClickableItem.qml</file>
+        <file alias="CustomMainButton.qml">basic_items/CustomMainButton.qml</file>
+        <file alias="FormTextField.qml">basic_items/FormTextField.qml</file>
+        <file alias="MainButton.qml">basic_items/MainButton.qml</file>
+        <file alias="RecButton.qml">basic_items/RecButton.qml</file>
+        <file alias="VerticalScrollableText.qml">basic_items/VerticalScrollableText.qml</file>
+        <file alias="VerticalScrollBar.qml">basic_items/VerticalScrollBar.qml</file>
+    </qresource>
+    <qresource prefix="/pop_up">
+        <file alias="ShadedPopUp.qml">pop_up/ShadedPopUp.qml</file>
+        <file alias="ScrollableTextPopUp.qml">pop_up/ScrollableTextPopUp.qml</file>
+    </qresource>
+    <qresource prefix="/login">
+        <file alias="LoginTextField.qml">login/LoginTextField.qml</file>
+        <file alias="LoginText.qml">login/LoginText.qml</file>
+    </qresource>
+    <qresource prefix="/logs">
+        <file alias="LogView.qml">logs/LogView.qml</file>
+        <file alias="LogItem.qml">logs/LogItem.qml</file>
+        <file alias="LogPanel.qml">logs/LogPanel.qml</file>
+        <file alias="LogText.qml">logs/LogText.qml</file>
+        <file alias="CompactLogView.qml">logs/CompactLogView.qml</file>
+        <file alias="CompactLogItem.qml">logs/CompactLogItem.qml</file>
+    </qresource>
+    <qresource prefix="/images">
+        <file alias="easy_test_bench_full.svg">images/easy_test_bench_full.svg</file>
+        <file alias="easy_test_bench_reduce.svg">images/easy_test_bench_reduce.svg</file>
+        <file alias="all_circuits_design_center.png">images/all_circuits_design_center.png</file>
+        <file alias="cancel_icon_white.svg">images/cancel_icon_white.svg</file>
+        <file alias="user_icon.svg">images/user_icon.svg</file>
+        <file alias="up_arrow.svg">images/up_arrow.svg</file>
+        <file alias="down_arrow.svg">images/down_arrow.svg</file>
+        <file alias="search.svg">images/search.svg</file>
+        <file alias="resume.svg">images/resume.svg</file>
+        <file alias="pause.svg">images/pause.svg</file>
+        <file alias="start.svg">images/start.svg</file>
+        <file alias="stop.svg">images/stop.svg</file>
+    </qresource>
+    <qresource prefix="/managers">
+        <file alias="ColorsManager.qml">managers/ColorsManager.qml</file>
+        <file alias="FontsManager.qml">managers/FontsManager.qml</file>
+    </qresource>
+    <qresource prefix="/menus">
+        <file alias="PopUpMenuItem.qml">menus/PopUpMenuItem.qml</file>
+        <file alias="RightMenuItemText.qml">menus/RightMenuItemText.qml</file>
+        <file alias="LeftMenuItemText.qml">menus/LeftMenuItemText.qml</file>
+        <file alias="TopBarFileMenu.qml">menus/TopBarFileMenu.qml</file>
+        <file alias="TopBarProfilMenu.qml">menus/TopBarProfilMenu.qml</file>
+    </qresource>
+    <qresource prefix="/plugins">
+        <file alias="SequencePluginsView.qml">plugins/SequencePluginsView.qml</file>
+        <file alias="APluginInputView.qml">plugins/APluginInputView.qml</file>
+        <file alias="StringInputView.qml">plugins/StringInputView.qml</file>
+        <file alias="SelectFileInputView.qml">plugins/SelectFileInputView.qml</file>
+        <file alias="RadioListButtonsInputView.qml">plugins/RadioListButtonsInputView.qml</file>
+    </qresource>
+    <qresource prefix="/sequence">
+        <file alias="SequenceButton.qml">sequence/SequenceButton.qml</file>
+        <file alias="SequenceTabButton.qml">sequence/SequenceTabButton.qml</file>
+        <file alias="SequenceDisplay.qml">sequence/SequenceDisplay.qml</file>
+    </qresource>
+</RCC>

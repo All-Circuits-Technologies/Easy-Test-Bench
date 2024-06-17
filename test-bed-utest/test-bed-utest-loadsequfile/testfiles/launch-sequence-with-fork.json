@@ -1,0 +1,78 @@
+[
+    {
+        "uniqueName": "nodesSequenceName",
+        "type": "NodesSequence",
+        "description": "node sequence description",
+        "parentInstanceName": "",
+        "inputs": [],
+        "outputs": []
+    },
+    {
+        "uniqueName": "initialNodeName",
+        "type": "InitialNode",
+        "description": "initialNodeDescription",
+        "parentInstanceName": "nodesSequenceName",
+        "toNode": "forkNodeName" 
+    },
+    {
+        "uniqueName": "forkNodeName",
+        "type": "ForkNode",
+        "description": "fork description",
+        "parentInstanceName": "nodesSequenceName",
+        "joinNodeInstanceName": "joinNodeName",
+        "toNodes": [ "sequenceModuleNode10", "sequenceModuleNode20" ]
+    },
+    {
+        "uniqueName": "sequenceModuleNode10",
+        "type": "SequenceModuleNode",
+        "description": "sequenceModuleNodeDescription",
+        "bankName": "plugin-simple",
+        "moduleName": "simplesequenceinstancemodule",
+        "moduleParameters": [],
+        "inputs": [],
+        "outputs": [],
+        "parentInstanceName": "nodesSequenceName",
+        "disable": false,
+        "toNode": "joinNodeName"
+    },
+    {
+        "uniqueName": "sequenceModuleNode20",
+        "type": "SequenceModuleNode",
+        "description": "sequenceModuleNodeDescription",
+        "bankName": "plugin-simple",
+        "moduleName": "simplesequenceinstancemodule",
+        "moduleParameters": [],
+        "inputs": [],
+        "outputs": [],
+        "parentInstanceName": "nodesSequenceName",
+        "disable": false,
+        "toNode": "sequenceModuleNode21"
+    },
+    {
+        "uniqueName": "sequenceModuleNode21",
+        "type": "SequenceModuleNode",
+        "description": "sequenceModuleNodeDescription",
+        "bankName": "plugin-simple",
+        "moduleName": "simplesequenceinstancemodule",
+        "moduleParameters": [],
+        "inputs": [],
+        "outputs": [],
+        "parentInstanceName": "nodesSequenceName",
+        "disable": false,
+        "toNode": "joinNodeName"
+    },
+    {
+        "uniqueName": "joinNodeName",
+        "type": "JoinNode",
+        "description": "joinNodeDescription",
+        "parentInstanceName": "nodesSequenceName",
+        "forkNodeInstanceName": "forkNodeName",
+        "toNode": "finalNodeName" 
+    },
+    {
+        "uniqueName": "finalNodeName",
+        "type": "FinalNode",
+        "description": "finalNodeDescription",
+        "parentInstanceName": "nodesSequenceName"
+    }
+]

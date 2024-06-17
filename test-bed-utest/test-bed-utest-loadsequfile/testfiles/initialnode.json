@@ -1,0 +1,16 @@
+[
+    {
+        "uniqueName": "nodesSequenceName",
+        "type": "NodesSequence",
+        "parentInstanceName": "",
+        "inputs": [],
+        "outputs": []
+    },
+    {
+        "uniqueName": "initialNodeName",
+        "type": "InitialNode",
+        "description": "initialNodeDescription",
+        "parentInstanceName": "nodesSequenceName",
+        "toNode": "" 
+    }
+]

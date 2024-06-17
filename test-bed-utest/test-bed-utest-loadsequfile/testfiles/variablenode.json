@@ -1,0 +1,49 @@
+[
+    {
+        "uniqueName": "nodesSequenceName",
+        "type": "NodesSequence",
+        "parentInstanceName": "",
+        "inputs": [],
+        "outputs": []
+    },
+    {
+        "uniqueName": "variableNode",
+        "type": "VariableNode",
+        "typeManaged": "number",
+        "unit": "W",
+        "unitPowerOf10": "3",
+        "parentInstanceName": "nodesSequenceName"
+    },
+    {
+        "uniqueName": "variableNode2",
+        "type": "VariableNode",
+        "typeManaged": "string",
+        "parentInstanceName": "nodesSequenceName"
+    },
+    {
+        "uniqueName": "variableNode3",
+        "type": "VariableNode",
+        "typeManaged": "bool",
+        "parentInstanceName": "nodesSequenceName"
+    },
+    {
+        "uniqueName": "variableNode4",
+        "type": "VariableNode",
+        "typeManaged": "list<number>",
+        "unit": "lm",
+        "unitPowerOf10": "3",
+        "parentInstanceName": "nodesSequenceName"
+    },
+    {
+        "uniqueName": "variableNode5",
+        "type": "VariableNode",
+        "typeManaged": "list<string>",
+        "parentInstanceName": "nodesSequenceName"
+    },
+    {
+        "uniqueName": "variableNode6",
+        "type": "VariableNode",
+        "typeManaged": "list<bool>",
+        "parentInstanceName": "nodesSequenceName"
+    }
+]

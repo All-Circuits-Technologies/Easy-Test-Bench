@@ -1,0 +1,10 @@
+{
+    "bindings":
+        [ {"pins": [{"instanceName": "dut1", "PinName": "led-green"},
+                    {"instanceName": "dut2", "PinName": "led-green"},
+                    {"instanceName": "dut3", "PinName": "led-green"}]},
+          {"pins": [{"instanceName": "dut1", "PinName": "lin"},
+                    {"instanceName": "dut2", "PinName": "lin"},
+                    {"instanceName": "but3", "PinName": "lin"}]}
+        ]
+}

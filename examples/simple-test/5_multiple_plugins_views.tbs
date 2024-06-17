@@ -1,0 +1,142 @@
+[
+    {
+        "uniqueName": "scanDataMatrixTestSeq",
+        "type": "NodesSequence",
+        "description": "The sequence which contains a scan data matrix input",
+        "parentInstanceName": "",
+        "inputs": [],
+        "outputs": []
+    },
+    {
+        "uniqueName": "dataMatrixOutput",
+        "type": "VariableNode",
+        "typeManaged": "string",
+        "parentInstanceName": "scanDataMatrixTestSeq"
+    },
+    {
+        "uniqueName": "filePathSelected",
+        "type": "VariableNode",
+        "typeManaged": "string",
+        "parentInstanceName": "scanDataMatrixTestSeq"
+    },
+    {
+        "uniqueName": "lastErrors",
+        "type": "ConstantNode",
+        "typeManaged": "list<string>",
+        "parentInstanceName": "scanDataMatrixTestSeq",
+		"values": [
+			"test"
+		]
+    },
+    {
+        "uniqueName": "initialNodeName",
+        "type": "InitialNode",
+        "description": "Initial node of the scan data matrix sequence",
+        "parentInstanceName": "scanDataMatrixTestSeq",
+        "toNode": "forkNodeName"
+    },
+    {
+        "uniqueName": "forkNodeName",
+        "type": "ForkNode",
+        "description": "fork description",
+        "parentInstanceName": "scanDataMatrixTestSeq",
+        "joinNodeInstanceName": "joinNodeName",
+        "toNodes": [
+            "scanDataMatrix",
+            "errorResultDisplay",
+            "binFileBrowser"
+        ]
+    },
+    {
+        "uniqueName": "scanDataMatrix",
+        "type": "SequenceModuleNode",
+        "description": "Scan data matrix plugin",
+        "bankName": "scan-data-matrix-plugin",
+        "moduleName": "scandatamatrix",
+        "moduleParameters": [],
+        "inputs": [],
+        "outputs": [
+            {
+                "name": "data",
+                "typeManaged": "string",
+                "variableNodeName": "dataMatrixOutput"
+            }
+        ],
+        "parentInstanceName": "scanDataMatrixTestSeq",
+        "disable": false,
+        "toNode": "joinNodeName"
+    },
+    {
+        "uniqueName": "errorResultDisplay",
+        "type": "SequenceModuleNode",
+        "description": "Display some error result and take the board out",
+        "bankName": "analyse-results-plugin",
+        "moduleName": "displayerrorresults",
+        "moduleParameters": [
+            {
+                "name": "baseImagePathName",
+                "value": "fake_image.png"
+            },
+            {
+                "name": "errorsNbToDisplay",
+                "value": 2
+            }
+        ],
+        "inputs": [
+            {
+                "name": "inputErrorsToDisplay",
+                "typeManaged": "list<string>",
+                "referenceNodeName": "lastErrors"
+            }
+        ],
+        "outputs": [],
+        "parentInstanceName": "scanDataMatrixTestSeq",
+        "disable": false,
+        "toNode": "joinNodeName"
+    },
+    {
+        "uniqueName": "binFileBrowser",
+        "type": "SequenceModuleNode",
+        "description": "File browser",
+        "bankName": "file-browser-plugin",
+        "moduleName": "filebrowermodule",
+        "moduleParameters": [
+            {
+                "name": "selectDir",
+                "value": false
+            },
+            {
+                "name": "fileExtensions",
+                "values": [
+                    "Binary files (*.hex *.elf)",
+					"All files (*)"
+                ]
+            }
+        ],
+        "inputs": [],
+        "outputs": [
+            {
+                "name": "filePathSelected",
+                "typeManaged": "string",
+                "variableNodeName": "filePathSelected"
+            }
+        ],
+        "parentInstanceName": "scanDataMatrixTestSeq",
+        "disable": false,
+        "toNode": "joinNodeName"
+    },
+    {
+        "uniqueName": "joinNodeName",
+        "type": "JoinNode",
+        "description": "joinNodeDescription",
+        "parentInstanceName": "scanDataMatrixTestSeq",
+        "forkNodeInstanceName": "forkNodeName",
+        "toNode": "finalNodeName"
+    },
+    {
+        "uniqueName": "finalNodeName",
+        "type": "FinalNode",
+        "description": "finalNodeDescription",
+        "parentInstanceName": "scanDataMatrixTestSeq"
+    }
+]

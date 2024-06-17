@@ -1,0 +1,64 @@
+[
+    {
+        "uniqueName": "nodesSequenceName",
+        "type": "NodesSequence",
+        "parentInstanceName": "",
+        "inputs": [],
+        "outputs": []
+    },
+    {
+        "uniqueName": "joinNodeName",
+        "type": "JoinNode",
+        "description": "joinNodeDescription",
+        "parentInstanceName": "nodesSequenceName",
+        "forkNodeInstanceName": "forkNodeName",
+        "toNode": "" 
+    },
+    {
+        "uniqueName": "sequenceModuleNode10",
+        "type": "SequenceModuleNode",
+        "description": "sequenceModuleNodeDescription",
+        "bankName": "plugin-simple",
+        "moduleName": "simplesequenceinstancemodule",
+        "moduleParameters": [],
+        "inputs": [],
+        "outputs": [],
+        "parentInstanceName": "nodesSequenceName",
+        "disable": false,
+        "toNode": "joinNodeName"
+    },
+    {
+        "uniqueName": "sequenceModuleNode20",
+        "type": "SequenceModuleNode",
+        "description": "sequenceModuleNodeDescription",
+        "bankName": "plugin-simple",
+        "moduleName": "simplesequenceinstancemodule",
+        "moduleParameters": [],
+        "inputs": [],
+        "outputs": [],
+        "parentInstanceName": "nodesSequenceName",
+        "disable": false,
+        "toNode": "sequenceModuleNode21"
+    },
+    {
+        "uniqueName": "sequenceModuleNode21",
+        "type": "SequenceModuleNode",
+        "description": "sequenceModuleNodeDescription",
+        "bankName": "plugin-simple",
+        "moduleName": "simplesequenceinstancemodule",
+        "moduleParameters": [],
+        "inputs": [],
+        "outputs": [],
+        "parentInstanceName": "nodesSequenceName",
+        "disable": false,
+        "toNode": ""
+    },
+    {
+        "uniqueName": "forkNodeName",
+        "type": "ForkNode",
+        "description": "fork description",
+        "parentInstanceName": "nodesSequenceName",
+        "joinNodeInstanceName": "joinNodeName",
+        "toNodes": [ "sequenceModuleNode10", "sequenceModuleNode20" ]
+    }
+]

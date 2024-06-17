@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file alias="infinitewaitanimation.gif">defaultimages/infinitewaitanimation.gif</file>
+        <file alias="infinitewaitanimation-2.gif">defaultimages/infinitewaitanimation-2.gif</file>
+    </qresource>
+</RCC>

@@ -1,0 +1,20 @@
+{
+  "projectName": "Demo project",
+  "database": {
+    "name": "fake",
+    "url": "127.0.0.1:666",
+    "authName": "Joe"
+  },
+  "sequenceFilesPath": [
+    "sequences/sequence_right_jlink_name.tbs",
+    "sequences/sequence_wrong_jlink_name.tbs",
+    "sequences/sequence_wrong_interface_name.tbs"
+  ],
+  "topologyFilesPath": [
+    "topology.tbt"
+  ],
+  "last_used_database": 0,
+  "last_used_sequence": 0,
+  "last_used_topology": 0
+}
+

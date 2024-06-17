@@ -1,0 +1,36 @@
+[
+    {
+        "uniqueName": "nodesSequenceName",
+        "type": "NodesSequence",
+        "description": "node sequence description",
+        "parentInstanceName": "",
+        "inputs": [],
+        "outputs": []
+    },
+    {
+        "uniqueName": "initialNodeName",
+        "type": "InitialNode",
+        "description": "initialNodeDescription",
+        "parentInstanceName": "nodesSequenceName",
+        "toNode": "sequenceModuleNode" 
+    },
+    {
+        "uniqueName": "sequenceModuleNode",
+        "type": "SequenceModuleNode",
+        "description": "sequenceModuleNodeDescription",
+        "bankName": "plugin-simple",
+        "moduleName": "simplesequenceinstancemodule",
+        "moduleParameters": [],
+        "inputs": [],
+        "outputs": [],
+        "parentInstanceName": "nodesSequenceName",
+        "disable": false,
+        "toNode": "finalNodeName"
+    },
+    {
+        "uniqueName": "finalNodeName",
+        "type": "FinalNode",
+        "description": "finalNodeDescription",
+        "parentInstanceName": "nodesSequenceName"
+    }
+]

@@ -1,0 +1,25 @@
+[
+    {
+        "uniqueName": "nodesSequenceName",
+        "type": "NodesSequence",
+        "parentInstanceName": "",
+        "inputs": [],
+        "outputs": []
+    },
+    {
+        "uniqueName": "forkNode",
+        "type": "ForkNode",
+        "description": "fork description",
+        "parentInstanceName": "nodesSequenceName",
+        "joinNodeInstanceName": "joinNodeName",
+        "toNodes": []
+    },
+    {
+        "uniqueName": "joinNodeName",
+        "type": "JoinNode",
+        "description": "joinNodeDescription",
+        "parentInstanceName": "nodesSequenceName",
+        "forkNodeInstanceName": "forkNode",
+        "toNode": "" 
+    }
+]

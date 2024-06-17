@@ -1,0 +1,40 @@
+[
+    {
+        "uniqueName": "nodesSequenceName",
+        "type": "NodesSequence",
+        "description": "node sequence description",
+        "parentInstanceName": "",
+        "inputs": [
+            {
+                "name": "in1",
+                "typeManaged": "number",
+                "unit": "A",
+                "unitPowerOf10": "-3"
+            },
+            {
+                "name": "in2",
+                "typeManaged": "string",
+                "nothingtodohere": "kkkolllo"
+            },
+            {
+                "name": "in3",
+                "typeManaged": "bool"
+            },
+            {
+                "name": "in4",
+                "typeManaged": "list<number>",
+                "unit": "Ω",
+                "unitPowerOf10": "3"
+            },
+            {
+                "name": "in5",
+                "typeManaged": "list<string>"
+            },
+            {
+                "name": "in6",
+                "typeManaged": "list<bool>"
+            }
+        ],
+        "outputs": []
+    }
+]

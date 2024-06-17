@@ -1,0 +1,53 @@
+{
+    "components": [
+        {
+            "name": "fakebox",
+            "description": "Device under test",
+            "category": "FAKE",
+            "type": "basic",
+            "pins": [
+                {
+                    "groupName": "Test points",
+                    "elements": [
+                        { "label": "SW1", "kind": "signal", "direction": "output" },
+                        { "label": "SW2", "kind": "signal", "direction": "output" },
+                        { "label": "SW3", "kind": "signal", "direction": "output" },
+                        { "label": "LDO1", "kind": "signal", "direction": "output" },
+                        { "label": "3V8_GSM", "kind": "signal", "direction": "output" }
+                    ]
+                },
+                {
+                    "groupName": "leds",
+                    "elements": [
+                        { "label": "led-green", "kind": "light", "direction": "output" },
+                        { "label": "led-red", "kind": "light", "direction": "output" }
+                    ]
+                },
+                {
+                    "groupName": "streams",
+                    "elements": [
+                        { "label": "lin", "kind": "stream/lin", "direction": "inout" },
+                        { "label": "debug", "kind": "stream/rs232", "direction": "inout" }
+                    ]
+                }
+            ],
+            "params": []
+        },
+        {
+            "name": "lin-to-rs232-converter",
+            "description": "Raw LIN <-> RS-232 serial converter",
+            "category": "FAKE",
+            "type": "basic",
+            "pins": [
+                {
+                    "groupName": "LIN",
+                    "elements": [ { "label": "LIN", "kind":"stream/lin", "direction": "inout" } ]
+                },
+                {
+                    "groupName": "RS232",
+                    "elements": [ { "label": "RS232", "kind": "stream/rs232", "direction": "inout" } ]
+                }
+            ]
+        }
+    ]
+}

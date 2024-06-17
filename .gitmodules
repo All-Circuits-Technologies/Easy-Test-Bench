@@ -1,0 +1,7 @@
+# SPDX-FileCopyrightText: 2021 Benoit Rolandeau <benoit.rolandeau@allcircuits.com>
+#
+# SPDX-License-Identifier: LicenseRef-ALLCircuits-ACT-1.1
+
+[submodule "actqttoolbox"]
+	path = actlibs
+	url = git@github.com:All-Circuits-Technologies/ACT-Qt-Toolbox.git

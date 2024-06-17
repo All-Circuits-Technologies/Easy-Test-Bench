@@ -1,0 +1,76 @@
+[
+    {
+        "uniqueName": "nodesSequenceName",
+        "type": "NodesSequence",
+        "parentInstanceName": "",
+        "inputs": [],
+        "outputs": []
+    },
+    {
+        "uniqueName": "groupNodeName",
+        "type": "GroupNode",
+        "description": "group node description",
+        "parentInstanceName": "nodesSequenceName",
+        "inputs": [
+            {
+                "name": "in1",
+                "typeManaged": "number",
+                "unit": "A",
+                "unitPowerOf10": "-3"
+            },
+            {
+                "name": "in2",
+                "typeManaged": "string"
+            },
+            {
+                "name": "in3",
+                "typeManaged": "bool"
+            },
+            {
+                "name": "in4",
+                "typeManaged": "list<number>",
+                "unit": "Ω",
+                "unitPowerOf10": "3"
+            },
+            {
+                "name": "in5",
+                "typeManaged": "list<string>"
+            },
+            {
+                "name": "in6",
+                "typeManaged": "list<bool>"
+            }
+        ],
+        "outputs": [
+            {
+                "name": "out1",
+                "typeManaged": "number",
+                "unit": "V",
+                "unitPowerOf10": "-2"
+            },
+            {
+                "name": "out2",
+                "typeManaged": "string"
+            },
+            {
+                "name": "out3",
+                "typeManaged": "bool"
+            },
+            {
+                "name": "out4",
+                "typeManaged": "list<number>",
+                "unit": "Hz",
+                "unitPowerOf10": "4"
+            },
+            {
+                "name": "out5",
+                "typeManaged": "list<string>"
+            },
+            {
+                "name": "out6",
+                "typeManaged": "list<bool>"
+            }
+        ],
+        "toNode": ""
+    }
+]

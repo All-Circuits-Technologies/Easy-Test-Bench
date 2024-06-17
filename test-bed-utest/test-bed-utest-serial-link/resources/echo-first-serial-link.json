@@ -1,0 +1,265 @@
+[
+    {
+        "uniqueName": "nodesSequenceName",
+        "type": "NodesSequence",
+        "description": "node sequence description",
+        "parentInstanceName": "",
+        "inputs": [],
+        "outputs": []
+    },
+    {
+        "uniqueName": "serial-name",
+        "type": "VariableNode",
+        "typeManaged": "string",
+        "parentInstanceName": "nodesSequenceName"
+    },
+    {
+        "uniqueName": "serial-sn",
+        "type": "VariableNode",
+        "typeManaged": "string",
+        "parentInstanceName": "nodesSequenceName"
+    },
+    {
+        "uniqueName": "serial-vid",
+        "type": "VariableNode",
+        "typeManaged": "number",
+        "parentInstanceName": "nodesSequenceName"
+    },
+    {
+        "uniqueName": "serial-pid",
+        "type": "VariableNode",
+        "typeManaged": "number",
+        "parentInstanceName": "nodesSequenceName"
+    },
+    {
+        "uniqueName": "serial-description",
+        "type": "VariableNode",
+        "typeManaged": "string",
+        "parentInstanceName": "nodesSequenceName"
+    },
+    {
+        "uniqueName": "serial-manufacturer",
+        "type": "VariableNode",
+        "typeManaged": "string",
+        "parentInstanceName": "nodesSequenceName"
+    },
+    {
+        "uniqueName": "serial-location",
+        "type": "VariableNode",
+        "typeManaged": "string",
+        "parentInstanceName": "nodesSequenceName"
+    },
+    {
+        "uniqueName": "serial-found",
+        "type": "VariableNode",
+        "typeManaged": "boolean",
+        "parentInstanceName": "nodesSequenceName"
+    },
+    {
+        "uniqueName": "message-to-send",
+        "type": "ConstantNode",
+        "typeManaged": "string",
+        "parentInstanceName": "nodesSequenceName",
+        "value": "It's magic!"
+    },
+    {
+        "uniqueName": "echo-found",
+        "type": "VariableNode",
+        "typeManaged": "boolean",
+        "parentInstanceName": "nodesSequenceName"
+    },
+    {
+        "uniqueName": "echo-message",
+        "type": "VariableNode",
+        "typeManaged": "string",
+        "parentInstanceName": "nodesSequenceName"
+    },
+    {
+        "uniqueName": "initialNodeName",
+        "type": "InitialNode",
+        "description": "initialNodeDescription",
+        "parentInstanceName": "nodesSequenceName",
+        "toNode": "search-first-serial-link"
+    },
+    {
+        "uniqueName": "search-first-serial-link",
+        "type": "SequenceModuleNode",
+        "description": "Search for first USB serial",
+        "disable": false,
+        "parentInstanceName": "nodesSequenceName",
+        "bankName": "serial-link-plugin",
+        "moduleName": "seriallinkprobe",
+        "moduleParameters": [
+            {
+                "name": "mandatory",
+                "value": false
+            },
+            {
+                "name": "name",
+                "value": ""
+            },
+            {
+                "name": "serial-number",
+                "value": ""
+            },
+            {
+                "name": "usb-vid",
+                "value": 0
+            },
+            {
+                "name": "usb-pid",
+                "value": 0
+            },
+            {
+                "name": "description",
+                "value": ""
+            },
+            {
+                "name": "manufacturer",
+                "value": ""
+            },
+            {
+                "name": "location",
+                "value": ""
+            }
+        ],
+        "inputs": [],
+        "outputs": [
+            {
+                "name": "found",
+                "typeManaged": "boolean",
+                "variableNodeName": "serial-found"
+            },
+            {
+                "name": "name",
+                "typeManaged": "string",
+                "variableNodeName": "serial-name"
+            },
+            {
+                "name": "serial-number",
+                "typeManaged": "string",
+                "variableNodeName": "serial-sn"
+            },
+            {
+                "name": "usb-vid",
+                "typeManaged": "number",
+                "variableNodeName": "serial-vid"
+            },
+            {
+                "name": "usb-pid",
+                "typeManaged": "number",
+                "variableNodeName": "serial-pid"
+            },
+            {
+                "name": "description",
+                "typeManaged": "string",
+                "variableNodeName": "serial-description"
+            },
+            {
+                "name": "manufacturer",
+                "typeManaged": "string",
+                "variableNodeName": "serial-manufacturer"
+            },
+            {
+                "name": "location",
+                "typeManaged": "string",
+                "variableNodeName": "serial-location"
+            }
+        ],
+        "toNode": "setup-first-serial-link"
+    },
+    {
+        "uniqueName": "setup-first-serial-link",
+        "type": "SequenceModuleNode",
+        "description": "Setup found serial to 115200 without flow control",
+        "disable": false,
+        "parentInstanceName": "nodesSequenceName",
+        "bankName": "serial-link-plugin",
+        "moduleName": "seriallinksetup",
+        "moduleParameters": [
+            {
+                "name": "baudrate",
+                "value": 115200
+            },
+            {
+                "name": "sw-flow-ctl",
+                "value": false
+            },
+            {
+                "name": "hw-flow-ctl",
+                "value": false
+            }
+        ],
+        "inputs": [
+            {
+                "name": "name",
+                "typeManaged": "string",
+                "referenceNodeName": "serial-name"
+            }
+        ],
+        "outputs": [],
+        "toNode": "write-read-first-serial-link"
+    },
+    {
+        "uniqueName": "write-read-first-serial-link",
+        "type": "SequenceModuleNode",
+        "description": "Write text and wait the echo (RX-TX must be wired together)",
+        "disable": false,
+        "parentInstanceName": "nodesSequenceName",
+        "bankName": "serial-link-plugin",
+        "moduleName": "seriallinkwriteread",
+        "moduleParameters": [
+            {
+                "name": "expected-pattern",
+                "value": ".*magic.*"
+            },
+            {
+                "name": "failure-pattern",
+                "value": "pong"
+            },
+            {
+                "name": "timeout-ms",
+                "value": 10000
+            },
+            {
+                "name": "end-of-line",
+                "value": "\r"
+            },
+            {
+                "name": "trim",
+                "value": true
+            }
+        ],
+        "inputs": [
+            {
+                "name": "name",
+                "typeManaged": "string",
+                "referenceNodeName": "serial-name"
+            },
+            {
+                "name": "message",
+                "typeManaged": "string",
+                "referenceNodeName": "message-to-send"
+            }
+        ],
+        "outputs": [
+            {
+                "name": "found",
+                "typeManaged": "bool",
+                "variableNodeName": "echo-found"
+            },
+            {
+                "name": "message",
+                "typeManaged": "string",
+                "variableNodeName": "echo-message"
+            }
+        ],
+        "toNode": "finalNodeName"
+    },
+    {
+        "uniqueName": "finalNodeName",
+        "type": "FinalNode",
+        "description": "finalNodeDescription",
+        "parentInstanceName": "nodesSequenceName"
+    }
+]

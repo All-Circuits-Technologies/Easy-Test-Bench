@@ -1,0 +1,65 @@
+[
+    {
+        "uniqueName": "nodesSequenceName",
+        "type": "NodesSequence",
+        "description": "node sequence description",
+        "parentInstanceName": "",
+        "inputs": [],
+        "outputs": []
+    },
+    {
+        "uniqueName": "constantNode",
+        "type": "ConstantNode",
+        "typeManaged": "bool",
+        "parentInstanceName": "nodesSequenceName",
+        "value": true
+    },
+    {
+        "uniqueName": "initialNodeName",
+        "type": "InitialNode",
+        "description": "initialNodeDescription",
+        "parentInstanceName": "nodesSequenceName",
+        "toNode": "sequenceModuleNode" 
+    },
+    {
+        "uniqueName": "sequenceModuleNode",
+        "type": "SequenceModuleNode",
+        "description": "sequenceModuleNodeDescription",
+        "bankName": "variable-compare-test-plugin",
+        "moduleName": "tworefsboolcomparator",
+        "moduleParameters": [
+            {
+                "name": "comparisonOperator",
+                "values": [
+                    "notEqualKey"
+                ]
+            },
+            {
+                "name": "exitIfFail",
+                "value": true
+            }
+        ],
+        "inputs": [
+            {
+                "name": "inputPin",
+                "typeManaged": "boolean",
+                "referenceNodeName": "constantNode"
+            },
+            {
+                "name": "inputSecPin",
+                "typeManaged": "boolean",
+                "referenceNodeName": "constantNode"
+            }
+        ],
+        "outputs": [],
+        "parentInstanceName": "nodesSequenceName",
+        "disable": false,
+        "toNode": "finalNodeName"
+    },
+    {
+        "uniqueName": "finalNodeName",
+        "type": "FinalNode",
+        "description": "finalNodeDescription",
+        "parentInstanceName": "nodesSequenceName"
+    }
+]

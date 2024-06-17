@@ -1,0 +1,93 @@
+[
+    {
+        "uniqueName": "nodesSequenceName",
+        "type": "NodesSequence",
+        "parentInstanceName": "",
+        "inputs": [],
+        "outputs": []
+    },
+    {
+        "uniqueName": "decisionalNodeName",
+        "type": "DecisionalNode",
+        "description": "decisional description",
+        "parentInstanceName": "nodesSequenceName",
+        "referenceNodeNameToTest": "constantNode2",
+        "defaultNodeName": "sequenceModuleNode",
+        "toNodes": [
+            {
+                "toNode": "sequenceModuleNode2",
+                "operator": "==",
+                "value": "2"
+            },
+            {
+                "toNode": "sequenceModuleNode3",
+                "operator": "||",
+                "elements": [
+                    {
+                        "operator": "==",
+                        "value": "0"
+                    },
+                    {
+                        "operator":"&&",
+                        "elements": [
+                            {
+                                "operator": ">=",
+                                "value": "3"
+                            },
+                            {
+                                "operator": "<",
+                                "value": "12,5"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "uniqueName": "constantNode2",
+        "type": "ConstantNode",
+        "typeManaged": "number",
+        "parentInstanceName": "nodesSequenceName",
+        "value": "2,3"
+    },
+    {
+        "uniqueName": "sequenceModuleNode",
+        "type": "SequenceModuleNode",
+        "description": "sequenceModuleNodeDescription",
+        "bankName": "plugin-simple",
+        "moduleName": "simplesequenceinstancemodule",
+        "moduleParameters": [],
+        "inputs": [],
+        "outputs": [],
+        "parentInstanceName": "nodesSequenceName",
+        "disable": false,
+        "toNode": ""
+    },
+    {
+        "uniqueName": "sequenceModuleNode2",
+        "type": "SequenceModuleNode",
+        "description": "sequenceModuleNodeDescription",
+        "bankName": "plugin-simple",
+        "moduleName": "simplesequenceinstancemodule",
+        "moduleParameters": [],
+        "inputs": [],
+        "outputs": [],
+        "parentInstanceName": "nodesSequenceName",
+        "disable": false,
+        "toNode": ""
+    },
+    {
+        "uniqueName": "sequenceModuleNode3",
+        "type": "SequenceModuleNode",
+        "description": "sequenceModuleNodeDescription",
+        "bankName": "plugin-simple",
+        "moduleName": "simplesequenceinstancemodule",
+        "moduleParameters": [],
+        "inputs": [],
+        "outputs": [],
+        "parentInstanceName": "nodesSequenceName",
+        "disable": false,
+        "toNode": ""
+    }
+]

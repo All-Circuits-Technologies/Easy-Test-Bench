@@ -1,0 +1,77 @@
+[
+    {
+        "uniqueName": "nodesSequenceName",
+        "type": "NodesSequence",
+        "description": "node sequence description",
+        "parentInstanceName": "",
+        "inputs": [],
+        "outputs": []
+    },
+    {
+        "uniqueName": "variableNode1",
+        "type": "VariableNode",
+        "typeManaged": "number",
+        "parentInstanceName": "nodesSequenceName"
+    },
+    {
+        "uniqueName": "variableNode2",
+        "type": "VariableNode",
+        "typeManaged": "number",
+        "parentInstanceName": "nodesSequenceName"
+    },
+    {
+        "uniqueName": "initialNodeName",
+        "type": "InitialNode",
+        "description": "initialNodeDescription",
+        "parentInstanceName": "nodesSequenceName",
+        "toNode": "groupNodeName"
+    },
+    {
+        "uniqueName": "groupNodeName",
+        "type": "GroupNode",
+        "description": "group node description",
+        "parentInstanceName": "nodesSequenceName",
+        "inputs": [
+            {
+                "name": "in1",
+                "typeManaged": "number",
+                "referenceNodeName": "variableNode1",
+                "internalBindingRefNodeName": "variableNode1"
+            }
+        ],
+        "outputs": [
+            {
+                "name": "out1",
+                "typeManaged": "number",
+                "variableNodeName": "variableNode2",
+                "internalBindingVarNodeName": "variableNode1"
+            }
+        ],
+        "toNode": "finalNodeName"
+    },
+    {
+        "uniqueName": "variableNode1",
+        "type": "VariableNode",
+        "typeManaged": "number",
+        "parentInstanceName": "groupNodeName"
+    },
+    {
+        "uniqueName": "initialNodeName",
+        "type": "InitialNode",
+        "description": "initialNodeDescription",
+        "parentInstanceName": "groupNodeName",
+        "toNode": "finalNodeName"
+    },
+    {
+        "uniqueName": "finalNodeName",
+        "type": "FinalNode",
+        "description": "finalNodeDescription",
+        "parentInstanceName": "groupNodeName"
+    },
+    {
+        "uniqueName": "finalNodeName",
+        "type": "FinalNode",
+        "description": "finalNodeDescription",
+        "parentInstanceName": "nodesSequenceName"
+    }
+]

@@ -1,0 +1,37 @@
+<RCC>
+    <qresource prefix="/">
+        <file alias="initialnode.json">testfiles/initialnode.json</file>
+        <file alias="nodessequence-minimal.json">testfiles/nodessequence-minimal.json</file>
+        <file alias="nodessequence-withotherelem.json">testfiles/nodessequence-withotherelem.json</file>
+        <file alias="nodessequence-withallelems.json">testfiles/nodessequence-withallelems.json</file>
+        <file alias="mergenode.json">testfiles/mergenode.json</file>
+        <file alias="finalnode.json">testfiles/finalnode.json</file>
+        <file alias="variablenode.json">testfiles/variablenode.json</file>
+        <file alias="constantnode.json">testfiles/constantnode.json</file>
+        <file alias="sequencemodulenode.json">testfiles/sequencemodulenode.json</file>
+        <file alias="forknode.json">testfiles/forknode.json</file>
+        <file alias="decisionalnode.json">testfiles/decisionalnode.json</file>
+        <file alias="groupnode.json">testfiles/groupnode.json</file>
+        <file alias="inclusionnode.json">testfiles/inclusionnode.json</file>
+        <file alias="decisionalnode-complex.json">testfiles/decisionalnode-complex.json</file>
+        <file alias="forknode-complex.json">testfiles/forknode-complex.json</file>
+        <file alias="groupnode-complex.json">testfiles/groupnode-complex.json</file>
+        <file alias="forknode-witherror.json">testfiles/forknode-witherror.json</file>
+        <file alias="launch-sequ-with-seqmodule.json">testfiles/launch-sequ-with-seqmodule.json</file>
+        <file alias="launch-sequence-with-fork.json">testfiles/launch-sequence-with-fork.json</file>
+        <file alias="launch-sequence-minimal.json">testfiles/launch-sequence-minimal.json</file>
+        <file alias="launch-sequence-with-decisional.json">testfiles/launch-sequence-with-decisional.json</file>
+        <file alias="launch-sequ-cmplx-decisional.json">testfiles/launch-sequ-cmplx-decisional.json</file>
+        <file alias="launch-sequence-with-group.json">testfiles/launch-sequence-with-group.json</file>
+        <file alias="launch-sequ-incl-master.json">testfiles/launch-sequ-incl-master.json</file>
+        <file alias="launch-sequ-incl-slave.json">testfiles/launch-sequ-incl-slave.json</file>
+        <file alias="twojoinnodes-for-same-fork.json">testfiles/twojoinnodes-for-same-fork.json</file>
+        <file alias="twoforknodes-for-same-join.json">testfiles/twoforknodes-for-same-join.json</file>
+        <file alias="valid-to-launch-groupnode.json">testfiles/valid-to-launch-groupnode.json</file>
+        <file alias="launch-sequence-long-wait.json">testfiles/launch-sequence-long-wait.json</file>
+        <file alias="launch-seq-with-short-waits.json">testfiles/launch-seq-with-short-waits.json</file>
+        <file alias="launch-sequ-group-error-manage.json">testfiles/launch-sequ-group-error-manage.json</file>
+        <file alias="launch-sequ-incl-master-slave-err.json">testfiles/launch-sequ-incl-master-slave-err.json</file>
+        <file alias="launch-sequ-incl-slave-err.json">testfiles/launch-sequ-incl-slave-err.json</file>
+    </qresource>
+</RCC>

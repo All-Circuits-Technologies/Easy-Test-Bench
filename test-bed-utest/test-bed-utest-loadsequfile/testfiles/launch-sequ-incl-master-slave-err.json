@@ -1,0 +1,88 @@
+[
+    {
+        "uniqueName": "nodesSequenceName",
+        "type": "NodesSequence",
+        "description": "node sequence description",
+        "parentInstanceName": "",
+        "inputs": [],
+        "outputs": []
+    },
+    {
+        "uniqueName": "variableNode1",
+        "type": "VariableNode",
+        "typeManaged": "boolean",
+        "parentInstanceName": "nodesSequenceName"
+    },
+    {
+        "uniqueName": "constantNode2",
+        "type": "ConstantNode",
+        "typeManaged": "bool",
+        "parentInstanceName": "nodesSequenceName",
+        "value": false
+    },
+    {
+        "uniqueName": "initialNodeName",
+        "type": "InitialNode",
+        "description": "initialNodeDescription",
+        "parentInstanceName": "nodesSequenceName",
+        "toNode": "inclusionNode"
+    },
+    {
+        "uniqueName": "inclusionNode",
+        "type": "InclusionNode",
+        "description": "inclusion node description",
+        "parentInstanceName": "nodesSequenceName",
+        "otherFileReferencePath": ":/launch-sequ-incl-slave-err.json",
+        "emitErrorIfSequenceFailed": false,
+        "toNode": "sequenceModuleNode",
+        "inputs": [ ],
+        "outputs": [
+            {
+                "name": "sequenceSuccess",
+                "typeManaged": "boolean",
+                "variableNodeName": "variableNode1"
+            }
+        ]
+    },
+    {
+        "uniqueName": "sequenceModuleNode",
+        "type": "SequenceModuleNode",
+        "description": "sequenceModuleNodeDescription",
+        "bankName": "variable-compare-test-plugin",
+        "moduleName": "tworefsboolcomparator",
+        "moduleParameters": [
+            {
+                "name": "comparisonOperator",
+                "values": [
+                    "equalKey"
+                ]
+            },
+            {
+                "name": "exitIfFail",
+                "value": true
+            }
+        ],
+        "inputs": [
+            {
+                "name": "inputPin",
+                "typeManaged": "boolean",
+                "referenceNodeName": "variableNode1"
+            },
+            {
+                "name": "inputSecPin",
+                "typeManaged": "boolean",
+                "referenceNodeName": "constantNode2"
+            }
+        ],
+        "outputs": [],
+        "parentInstanceName": "nodesSequenceName",
+        "disable": false,
+        "toNode": "finalNodeName"
+    },
+    {
+        "uniqueName": "finalNodeName",
+        "type": "FinalNode",
+        "description": "finalNodeDescription",
+        "parentInstanceName": "nodesSequenceName"
+    }
+]

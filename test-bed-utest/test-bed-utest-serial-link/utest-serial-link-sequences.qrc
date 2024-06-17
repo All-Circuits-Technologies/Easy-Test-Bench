@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/">
+        <file alias="search-first-serial-link.json">resources/search-first-serial-link.json</file>
+        <file alias="search-first-aps-serial-link.json">resources/search-first-aps-serial-link.json</file>
+        <file alias="search-non-existent-serial.json">resources/search-non-existent-serial.json</file>
+        <file alias="setup-first-serial-link.json">resources/setup-first-serial-link.json</file>
+        <file alias="echo-first-serial-link.json">resources/echo-first-serial-link.json</file>
+    </qresource>
+</RCC>

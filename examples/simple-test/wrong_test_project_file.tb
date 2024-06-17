@@ -1,0 +1,12 @@
+{
+    "projectName": "Wrong test project file",
+    "database": {
+        "name": "",
+        "url": "127.0.0.1:666",
+        "authName": ""
+    },
+    "topologyFilesPath": [],
+    "last_used_database": 0,
+    "last_used_sequence": 0,
+    "last_used_topology": 0
+}

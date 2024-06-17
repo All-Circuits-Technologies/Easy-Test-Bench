@@ -1,0 +1,25 @@
+[
+    {
+        "uniqueName": "nodesSequenceName",
+        "type": "NodesSequence",
+        "parentInstanceName": "",
+        "inputs": [],
+        "outputs": []
+    },
+    {
+        "uniqueName": "decisionalNodeName",
+        "type": "DecisionalNode",
+        "description": "decisional description",
+        "parentInstanceName": "nodesSequenceName",
+        "referenceNodeNameToTest": "variableNode2",
+        "defaultNodeName": "",
+        "toNodes": []
+    },
+    {
+        "uniqueName": "variableNode2",
+        "type": "ConstantNode",
+        "typeManaged": "string",
+        "parentInstanceName": "nodesSequenceName",
+        "value": "constantValue"
+    }
+]

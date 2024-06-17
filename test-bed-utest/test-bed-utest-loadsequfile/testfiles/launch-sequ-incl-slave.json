@@ -1,0 +1,77 @@
+[
+    {
+        "uniqueName": "nodesSequenceName",
+        "type": "NodesSequence",
+        "description": "node sequence description",
+        "parentInstanceName": "",
+        "inputs": [
+            {
+                "name": "inputPin",
+                "typeManaged": "number",
+                "internalBindingRefNodeName": "variableNode1"
+            }
+        ],
+        "outputs": [
+            {
+                "name": "outputPin",
+                "typeManaged": "number",
+                "internalBindingVarNodeName": "variableNode1"
+            }
+        ]
+    },
+    {
+        "uniqueName": "variableNode1",
+        "type": "VariableNode",
+        "typeManaged": "number",
+        "parentInstanceName": "nodesSequenceName"
+    },
+    {
+        "uniqueName": "initialNodeName",
+        "type": "InitialNode",
+        "description": "initialNodeDescription",
+        "parentInstanceName": "nodesSequenceName",
+        "toNode": "sequenceModuleNode1"
+    },
+    {
+        "uniqueName": "sequenceModuleNode1",
+        "type": "SequenceModuleNode",
+        "description": "sequenceModuleNodeDescription",
+        "bankName": "variable-operations-plugin",
+        "moduleName": "fromrefnumberarithmeticoperator",
+        "moduleParameters": [
+            {
+                "name": "arithmeticValue",
+                "value": "1"
+            },
+            {
+                "name": "arithmeticOperator",
+                "values": [
+                    "addKey"
+                ]
+            }
+        ],
+        "inputs": [
+            {
+                "name": "inputPin",
+                "typeManaged": "number",
+                "referenceNodeName": "variableNode1"
+            }
+        ],
+        "outputs": [
+            {
+                "name": "outputPin",
+                "typeManaged": "number",
+                "variableNodeName": "variableNode1"
+            }
+        ],
+        "parentInstanceName": "nodesSequenceName",
+        "disable": false,
+        "toNode": "finalNodeName"
+    },
+    {
+        "uniqueName": "finalNodeName",
+        "type": "FinalNode",
+        "description": "finalNodeDescription",
+        "parentInstanceName": "nodesSequenceName"
+    }
+]

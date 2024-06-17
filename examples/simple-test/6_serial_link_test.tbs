@@ -1,0 +1,98 @@
+[
+    {
+        "uniqueName": "serialLinkSequence",
+        "type": "NodesSequence",
+        "description": "The sequence to test the serial link",
+        "parentInstanceName": "",
+        "inputs": [],
+        "outputs": []
+    },
+    {
+        "uniqueName": "comPort",
+        "type": "ConstantNode",
+        "typeManaged": "string",
+        "parentInstanceName": "serialLinkSequence",
+        "value": "COM3"
+    },
+    {
+        "uniqueName": "message",
+        "type": "ConstantNode",
+        "typeManaged": "string",
+        "parentInstanceName": "serialLinkSequence",
+        "value": "This is a test!"
+    },
+    {
+        "uniqueName": "initialNodeName",
+        "type": "InitialNode",
+        "description": "Initial node of the serial link test sequence",
+        "parentInstanceName": "serialLinkSequence",
+        "toNode": "setupCom"
+    },
+    {
+        "uniqueName": "setupCom",
+        "type": "SequenceModuleNode",
+        "description": "Communicate via serial link",
+        "bankName": "serial-link-plugin",
+        "moduleName": "seriallinksetup",
+        "moduleParameters": [
+            {
+                "name": "baudrate",
+                "value": 9600
+            },
+            {
+                "name": "sw-flow-ctl",
+                "value": false
+            },
+            {
+                "name": "hw-flow-ctl",
+                "value": false
+            }
+        ],
+        "inputs": [
+            {
+                "name": "name",
+                "typeManaged": "string",
+                "referenceNodeName": "comPort"
+            }
+        ],
+        "outputs": [],
+        "parentInstanceName": "serialLinkSequence",
+        "disable": false,
+        "toNode": "sendMsg"
+    },
+    {
+        "uniqueName": "sendMsg",
+        "type": "SequenceModuleNode",
+        "description": "Send a message via serial link",
+        "bankName": "serial-link-plugin",
+        "moduleName": "seriallinkwriteread",
+        "moduleParameters": [
+            {
+                "name": "expected-pattern",
+                "value": "This is a test!"
+            }
+        ],
+        "inputs": [
+            {
+                "name": "name",
+                "typeManaged": "string",
+                "referenceNodeName": "comPort"
+            },
+            {
+                "name": "message",
+                "typeManaged": "string",
+                "referenceNodeName": "message"
+            }
+        ],
+        "outputs": [],
+        "parentInstanceName": "serialLinkSequence",
+        "disable": false,
+        "toNode": "finalNodeName"
+    },
+    {
+        "uniqueName": "finalNodeName",
+        "type": "FinalNode",
+        "description": "finalNodeDescription",
+        "parentInstanceName": "serialLinkSequence"
+    }
+]

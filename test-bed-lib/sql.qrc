@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/sql">
+        <file>sql-scripts/0.1.sql</file>
+        <file>sql-scripts/0.2.sql</file>
+    </qresource>
+</RCC>

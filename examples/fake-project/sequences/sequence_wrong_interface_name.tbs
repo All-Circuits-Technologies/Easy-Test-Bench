@@ -1,0 +1,61 @@
+[
+    {
+        "uniqueName": "nodesSequenceName",
+        "type": "NodesSequence",
+        "description": "node sequence description",
+        "parentInstanceName": "",
+        "inputs": [],
+        "outputs": []
+    },
+    {
+        "uniqueName": "constantNodeBinPath",
+        "type": "ConstantNode",
+        "typeManaged": "string",
+        "parentInstanceName": "nodesSequenceName",
+        "value": "C:/Projets/gt_ihm.bin"
+    },
+    {
+        "uniqueName": "initialNodeName",
+        "type": "InitialNode",
+        "description": "initialNodeDescription",
+        "parentInstanceName": "nodesSequenceName",
+        "toNode": "sequenceModuleNode"
+    },
+    {
+        "uniqueName": "sequenceModuleNode",
+        "type": "SequenceModuleNode",
+        "description": "sequenceModuleNodeDescription",
+        "bankName": "segger-jlink-plugin",
+        "moduleName": "jlinkflash",
+        "moduleParameters": [
+                    {"name"  : "jLinkExe",
+                     "value" : "C:/Program Files (x86)/SEGGER/JLink/JLink.exe"},
+
+                    {"name"  : "device",
+                     "value" : "ATSAMC20E16"},
+
+                    {"name"  : "interface",
+                     "value" : "SWDOESNTEXIST"},
+
+                    {"name"  : "speed",
+                     "value" : "4000"},
+
+                    {"name"  : "flashingTimeoutMs",
+                     "value" : "30000"}],
+        "inputs": [
+                    {"name"  : "binPath",
+                     "typeManaged": "string",
+                     "referenceNodeName": "constantNodeBinPath"}
+                 ],
+        "outputs": [],
+        "parentInstanceName": "nodesSequenceName",
+        "disable": false,
+        "toNode": "finalNodeName"
+    },
+    {
+        "uniqueName": "finalNodeName",
+        "type": "FinalNode",
+        "description": "finalNodeDescription",
+        "parentInstanceName": "nodesSequenceName"
+    }
+]

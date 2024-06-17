@@ -1,0 +1,8 @@
+{
+  "instances": [
+                  { "name":"dut1", "component": "fakebox", "params": [] },
+                  { "name":"dut2", "component": "fakebox", "params": [] },
+                  { "name":"dut3", "component": "fakebox", "params": [] },
+                  { "name":"dut4", "component": "fakebox", "params": [] }
+               ]
+}

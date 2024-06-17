@@ -1,0 +1,12 @@
+{
+    "projectName": "Simple sequence tests",
+    "sequenceFilesPath": [
+        "1_simple_timer_test.tbs",
+        "2_buggy_sequence.tbs",
+        "3_scan_data_matrix_test.tbs",
+        "4_multiple_scan_data_matrix_test.tbs",
+        "5_multiple_plugins_views.tbs",
+        "6_serial_link_test.tbs"
+    ],
+    "topologyFilesPath": []
+}

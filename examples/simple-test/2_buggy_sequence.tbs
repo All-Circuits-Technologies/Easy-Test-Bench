@@ -1,0 +1,48 @@
+[
+    {
+        "uniqueName": "simpleTimerTestSeq",
+        "type": "NodesSequence",
+        "description": "The sequence which is a simple timer test",
+        "parentInstanceName": "",
+        "inputs": [],
+        "outputs": []
+    },
+    {
+        "uniqueName": "timeToWaitInMs",
+        "type": "ConstantNode",
+        "typeManaged": "number",
+        "parentInstanceName": "simpleTimerTestSeq"
+    },
+    {
+        "uniqueName": "initialNodeName",
+        "type": "InitialNode",
+        "description": "Initial node of the simple timer sequence",
+        "parentInstanceName": "simpleTimerTestSeq",
+        "toNode": "waitSomeTime"
+    },
+    {
+        "uniqueName": "waitSomeTime",
+        "type": "SequenceModuleNode",
+        "description": "Wait some times",
+        "bankName": "time-plugin",
+        "moduleName": "refentrywaitmodule",
+        "moduleParameters": [],
+        "inputs": [
+            {
+                "name": "timeToWaitInMs",
+                "typeManaged": "number",
+                "referenceNodeName": "timeToWaitInMs"
+            }
+        ],
+        "outputs": [],
+        "parentInstanceName": "simpleTimerTestSeq",
+        "disable": false,
+        "toNode": "finalNodeName"
+    },
+    {
+        "uniqueName": "finalNodeName",
+        "type": "FinalNode",
+        "description": "finalNodeDescription",
+        "parentInstanceName": "simpleTimerTestSeq"
+    }
+]

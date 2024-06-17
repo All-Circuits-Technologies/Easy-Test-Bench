@@ -1,0 +1,136 @@
+[
+    {
+        "uniqueName": "nodesSequenceName",
+        "type": "NodesSequence",
+        "description": "node sequence description",
+        "parentInstanceName": "",
+        "inputs": [],
+        "outputs": []
+    },
+    {
+        "uniqueName": "variableNode1",
+        "type": "VariableNode",
+        "typeManaged": "number",
+        "parentInstanceName": "nodesSequenceName"
+    },
+    {
+        "uniqueName": "initialNodeName",
+        "type": "InitialNode",
+        "description": "initialNodeDescription",
+        "parentInstanceName": "nodesSequenceName",
+        "toNode": "sequenceModuleNode1" 
+    },
+    {
+        "uniqueName": "sequenceModuleNode1",
+        "type": "SequenceModuleNode",
+        "description": "sequenceModuleNodeDescription",
+        "bankName": "variable-operations-plugin",
+        "moduleName": "valuenumberassignmentoperator",
+        "moduleParameters": [
+            {
+                "name": "assignmentModifier",
+                "value": "0"
+            }
+        ],
+        "inputs": [],
+        "outputs": [
+            {
+                "name": "outputPin",
+                "typeManaged": "number",
+                "variableNodeName": "variableNode1"
+            }
+        ],
+        "parentInstanceName": "nodesSequenceName",
+        "disable": false,
+        "toNode": "mergeNodeName1"
+    },
+    {
+        "uniqueName": "mergeNodeName1",
+        "type": "MergeNode",
+        "description": "mergeNodeDescription",
+        "parentInstanceName": "nodesSequenceName",
+        "toNode": "sequenceModuleNode2"
+    },
+    {
+        "uniqueName": "sequenceModuleNode2",
+        "type": "SequenceModuleNode",
+        "description": "sequenceModuleNodeDescription",
+        "bankName": "time-plugin",
+        "moduleName": "paramentrywaitmodule",
+        "moduleParameters": [
+            {
+                "name": "timeToWaitInMs",
+                "value": "200"
+            }
+        ],
+        "inputs": [],
+        "outputs": [],
+        "parentInstanceName": "nodesSequenceName",
+        "disable": false,
+        "toNode": "sequenceModuleNode3"
+    },
+    {
+        "uniqueName": "sequenceModuleNode3",
+        "type": "SequenceModuleNode",
+        "description": "sequenceModuleNodeDescription",
+        "bankName": "variable-operations-plugin",
+        "moduleName": "fromrefnumberarithmeticoperator",
+        "moduleParameters": [
+            {
+                "name": "arithmeticValue",
+                "value": "1"
+            },
+            {
+                "name": "arithmeticOperator",
+                "values": [
+                    "addKey"
+                ]
+            }
+        ],
+        "inputs": [
+            {
+                "name": "inputPin",
+                "typeManaged": "number",
+                "referenceNodeName": "variableNode1"
+            }
+        ],
+        "outputs": [
+            {
+                "name": "outputPin",
+                "typeManaged": "number",
+                "variableNodeName": "variableNode1"
+            }
+        ],
+        "parentInstanceName": "nodesSequenceName",
+        "disable": false,
+        "toNode": "decisionalNodeName1"
+    },
+    {
+        "uniqueName": "decisionalNodeName1",
+        "type": "DecisionalNode",
+        "description": "decisional description",
+        "parentInstanceName": "nodesSequenceName",
+        "referenceNodeNameToTest": "variableNode1",
+        "defaultNodeName": "mergeNodeName2",
+        "toNodes": [
+            {
+                "toNode": "mergeNodeName1",
+                "operator": "<=",
+                "value": "50"
+            }
+        ]
+    },
+    {
+        "uniqueName": "mergeNodeName2",
+        "type": "MergeNode",
+        "description": "mergeNodeDescription",
+        "parentInstanceName": "nodesSequenceName",
+        "toNode": "finalNodeName" 
+    },
+    {
+        "uniqueName": "finalNodeName",
+        "type": "FinalNode",
+        "description": "finalNodeDescription",
+        "parentInstanceName": "nodesSequenceName"
+    }
+]

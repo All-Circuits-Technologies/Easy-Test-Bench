@@ -1,0 +1,9 @@
+# SPDX-FileCopyrightText: 2022 Benoît Rolandeau <benoit.rolandeau@allcircuits.com>
+#
+# SPDX-License-Identifier: LicenseRef-ALLCircuits-ACT-1.1
+
+projectName: "Wrong test project file",
+topologyFilesPath: []
+last_used_database: 0
+last_used_sequence: 0
+last_used_topology: 0

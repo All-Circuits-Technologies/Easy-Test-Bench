@@ -1,0 +1,9 @@
+{
+  "name":               "My simple topology",
+  "revision":           17,
+
+  "librariesFilesPath": ["topology/001-library1.tbtl"],
+  "instancesFilesPath": ["topology/002-instances1.tbti"],
+  "bindingsFilesPath":  ["topology/003-bindings1.tbtb"],
+  "routesFilesPath":    ["topology/004-routes1.tbtr"]
+}
