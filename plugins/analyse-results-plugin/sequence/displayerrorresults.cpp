@@ -135,10 +135,10 @@ bool DisplayErrorResults::initParamsFormat(JsonArray &paramFormat) const
                                                                  errorNbParam));
 
     RETURN_IF_FALSE(BankJsonFormatter::formatParamStepMinMaxNumber(
-                                                            errorNbParam,
-                                                            Number(0),
-                                                            Number::maxInt32(),
-                                                            Number(1)));
+        errorNbParam,
+        Number(0),
+        Number::maxInt32(),
+        Number(1)));
 
     RETURN_IF_FALSE(BankJsonFormatter::formatParamRequired(true, errorNbParam));
 

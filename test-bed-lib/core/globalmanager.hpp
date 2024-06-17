@@ -42,6 +42,10 @@ class TESTBEDLIB_DLLSPEC GlobalManager : public QObject
             @return The project manager */
         const ProjectManager &getProjectMngr() const { return *_projectManager; }
 
+        /** @brief Access bank manager
+         *  @return The bank manager */
+        BankManager &accessBankMngr() { return *_bankManager; }
+
         /** @brief Get bank manager
             @return The bank manager */
         const BankManager &getBankMngr() const { return *_bankManager; }

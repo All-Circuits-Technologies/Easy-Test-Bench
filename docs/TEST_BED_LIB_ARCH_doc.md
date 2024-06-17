@@ -26,6 +26,7 @@ SPDX-License-Identifier: LicenseRef-ALLCircuits-ACT-1.1
       - [References nodes](#references-nodes)
       - [Sequences nodes](#sequences-nodes)
       - [Decisional transitions](#decisional-transitions)
+    - [extern C API](#extern-c-api)
 
 ## Preamble
 
@@ -1274,4 +1275,86 @@ classDiagram
     ADecisionalTransition ..> DecisionalEventValue: uses
     ADecisionalTransition ..> DecisionalOperator: uses
     DecisionalNode ..> ADecisionalTransition: uses
+```
+
+### extern C API
+
+AppApiC provides functions to use test-bed-lib with Flutter ffi.
+
+```mermaid
+classDiagram
+    class AppApiC{
+        <<static>>
+        
+        +getSequenceModules() *AppApiCCatalogStruct$
+        +reloadSequenceModules() *AppApiCCatalogStruct$
+        +checkJson(char *json, char **error, char **nodeName) bool$
+        +getVersion(char **version) bool$
+        +freeCatalog(AppApiCCatalogStruct *p)$
+        +freeString(char *p)$
+    }
+
+    class AppApiCManager{
+        <<singleton>>
+        +instance() AppApiCManager&$
+        +getSequenceModules() *AppApiCCatalogStruct
+        +reloadSequenceModules() *AppApiCCatalogStruct
+        +checkJson(char *json, char **error, char **nodeName) bool
+        +getVersion(char **version) bool
+    }
+
+    class AppApiCModuleGetterService{
+        +getSequenceModules() *AppApiCCatalogStruct
+        +reloadSequenceModules() *AppApiCCatalogStruct
+    }
+
+    class AppApiCJsonCheckerService{
+        +checkJson(char *json, char **error, char **nodeName) bool
+    }
+
+    class AppApiCCatalogStruct{
+        +AppApiCPluginStruct *plugins
+        +int pluginCount
+    }
+
+    class AppApiCPluginStruct{
+        +char *name
+        +AppApiCModuleStruct *modules
+        +int moduleCount
+    }
+
+    class AppApiCModuleStruct{
+        +char *name
+        +char *parameters
+        +char *inputs
+        +char *outputs
+    }
+
+    class AppApiCCatalogModel {
+        +vector~Plugin~ plugins
+        +toStruct() AppApiCCatalogStruct
+    }
+    class AppApiCPluginModel {
+        +string name
+        +vector~Plugin~ modules
+        +toStruct() AppApiCPluginStruct
+    }
+
+    class AppApiCModuleModel {
+        +string name
+        +string parameters
+        +string inputs
+        +string outputs
+        +toStruct() AppApiCModuleStruct
+    }
+
+    AppApiCManager *-- AppApiCModuleGetterService
+    AppApiCManager *-- AppApiCJsonCheckerService
+    AppApiCPluginModel *-- AppApiCModuleModel
+    AppApiCCatalogModel *-- AppApiCPluginModel  
+    AppApiCPluginStruct *-- AppApiCModuleStruct
+    AppApiCCatalogStruct *-- AppApiCPluginStruct
+    AppApiCCatalogModel ..> AppApiCCatalogStruct:use
+    AppApiCPluginModel ..> AppApiCPluginStruct:use
+    AppApiCModuleModel ..> AppApiCModuleStruct:use
 ```

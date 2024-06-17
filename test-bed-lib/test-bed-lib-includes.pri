@@ -19,6 +19,28 @@ INCLUDEPATH *= $$TESTBEDLIB_ROOT
 INCLUDEPATH *= $$ROOT
 INCLUDEPATH *= $$QTUTILITIES
 
+#appapic
+SOURCES *= $$TESTBEDLIB_ROOT/appapic/appapic.cpp
+HEADERS *= $$TESTBEDLIB_ROOT/appapic/appapic.h
+SOURCES *= $$TESTBEDLIB_ROOT/appapic/appapicjsoncheckerservice.cpp
+HEADERS *= $$TESTBEDLIB_ROOT/appapic/appapicjsoncheckerservice.hpp
+SOURCES *= $$TESTBEDLIB_ROOT/appapic/appapicmanager.cpp
+HEADERS *= $$TESTBEDLIB_ROOT/appapic/appapicmanager.hpp
+SOURCES *= $$TESTBEDLIB_ROOT/appapic/appapicmodulegetterservice.cpp
+HEADERS *= $$TESTBEDLIB_ROOT/appapic/appapicmodulegetterservice.hpp
+SOURCES *= $$TESTBEDLIB_ROOT/appapic/appapicqstringcopyhelper.cpp
+HEADERS *= $$TESTBEDLIB_ROOT/appapic/appapicqstringcopyhelper.hpp
+SOURCES *= $$TESTBEDLIB_ROOT/appapic/models/appapiccatalogmodel.cpp
+HEADERS *= $$TESTBEDLIB_ROOT/appapic/models/appapiccatalogmodel.hpp
+HEADERS *= $$TESTBEDLIB_ROOT/appapic/models/appapiccatalogstruct.h
+SOURCES *= $$TESTBEDLIB_ROOT/appapic/models/appapicmodulemodel.cpp
+HEADERS *= $$TESTBEDLIB_ROOT/appapic/models/appapicmodulemodel.hpp
+HEADERS *= $$TESTBEDLIB_ROOT/appapic/models/appapicmodulestruct.h
+SOURCES *= $$TESTBEDLIB_ROOT/appapic/models/appapicpluginmodel.cpp
+HEADERS *= $$TESTBEDLIB_ROOT/appapic/models/appapicpluginmodel.hpp
+HEADERS *= $$TESTBEDLIB_ROOT/appapic/models/appapicpluginstruct.h
+
+
 # Bank elements
 SOURCES *= $$TESTBEDLIB_ROOT/bank/adisplayuserinterface.cpp
 HEADERS *= $$TESTBEDLIB_ROOT/bank/adisplayuserinterface.hpp
