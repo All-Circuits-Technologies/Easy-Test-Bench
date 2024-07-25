@@ -54,9 +54,9 @@ class AJLinkInterface : public DefaultSequenceInstanceModule
             @param jLinkPgmPath The path to of the JLink program
             @param timeoutInMs The process execution timeout, if -1 the timeout is disabled
             @param logProcessError If true and if an error occured, they will be written in logs
-            @param processExitProperly If not null, this will say if the process exit properly,
+            @param processExitProperly If not null, this will say if the process exits properly,
                                        the param is equals to false except when the process succeeds
-                                       and no error occurs
+                                       and no error occurred
             @return True if no problem occurred */
         bool callJLinkPgm(const QFile &jLinkScriptFile,
                           const QString &jLinkPgmPath,
