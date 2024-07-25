@@ -560,7 +560,7 @@ bool MixinBoardDetection<T>::detectBoard(const T& sharedData,
             return true;
         }
 
-        bool isDetected;
+        bool isDetected = false;
         if(!boardDetectionProcess(sharedData, isDetected))
         {
             cancelledOrErrorOccurred = true;

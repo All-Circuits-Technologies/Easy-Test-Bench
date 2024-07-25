@@ -109,6 +109,11 @@ bool AJLinkInterface::callJLinkPgm(const QFile &jLinkScriptFile,
     bool waitForStarted = false;
     bool waitForFinished = false;
 
+    if(processExitProperly != nullptr)
+    {
+        *processExitProperly = false;
+    }
+
     auto tokenStart = connect(&process, &QProcess::started,
                               this, [&waitForStarted]() { waitForStarted = true; });
     auto tokenFinish = connect(&process, qOverload<int, QProcess::ExitStatus>(&QProcess::finished),
@@ -152,7 +157,7 @@ bool AJLinkInterface::callJLinkPgm(const QFile &jLinkScriptFile,
 
     if((process.exitStatus() != QProcess::NormalExit) || (process.exitCode() != 0))
     {
-        if(processExitProperly == nullptr && logProcessError)
+        if(logProcessError)
         {
             qWarning() << "Jlink didn't end as expected : " << process.error()
                        << " Exit code: " << process.exitCode();
@@ -162,12 +167,17 @@ bool AJLinkInterface::callJLinkPgm(const QFile &jLinkScriptFile,
                                                  .right(ProcessLogCharLimitToDisplay);
         }
 
+        // If processExitProperly is equal to null, it means that the caller has no way to know if
+        // the call has succeeded or not, that's why we return false here.
+        // If processExitProperly is not equal to null, it means that the caller gets the cmd result
+        // throught this variable; therefore we don't return false (which means that a not managed
+        // error has occurred).
         return (processExitProperly != nullptr);
     }
 
     if(processExitProperly != nullptr)
     {
-        *processExitProperly  = true;
+        *processExitProperly = true;
     }
 
     return true;
