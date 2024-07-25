@@ -109,6 +109,11 @@ bool AJLinkInterface::callJLinkPgm(const QFile &jLinkScriptFile,
     bool waitForStarted = false;
     bool waitForFinished = false;
 
+    if(processExitProperly != nullptr)
+    {
+        *processExitProperly = false;
+    }
+
     auto tokenStart = connect(&process, &QProcess::started,
                               this, [&waitForStarted]() { waitForStarted = true; });
     auto tokenFinish = connect(&process, qOverload<int, QProcess::ExitStatus>(&QProcess::finished),
@@ -160,11 +165,6 @@ bool AJLinkInterface::callJLinkPgm(const QFile &jLinkScriptFile,
                                                     .right(ProcessLogCharLimitToDisplay);
             qWarning() << "ErrorOutput: " << process.readAllStandardError()
                                                  .right(ProcessLogCharLimitToDisplay);
-        }
-
-        if(processExitProperly != nullptr)
-        {
-            *processExitProperly = false;
         }
 
         // If processExitProperly is equal to null, it means that the caller has no way to know if
